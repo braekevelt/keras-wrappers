@@ -1,5 +1,6 @@
 # KerasWrappers
-Wrappers around the Sequential and Functional API of Keras
+Wrappers around the Sequential and Functional API of Keras  
+by Alexander Braekevelt.
 
 ## Creating a model
 ### Sequential API
