@@ -163,3 +163,4 @@ class ModelWrapper(Model, Wrapper):
 
     def get_keras_model(self):
         return self
+
