@@ -83,7 +83,7 @@ generator = ImageDataGenerator(
             ... ,
             horizontal_flip=True
           )
-my_model.train_generator(generator, cat_train_x, cat_train_y, batch_size=64, epochs=5)
+my_model.train_generator(generator, x, y, batch_size=64, epochs=5)
 ```
 
 ## Plotting
