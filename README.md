@@ -110,5 +110,5 @@ my_model.save_model()
 ## Loading
 Restores the model weights and the history. (Requires same model architecture.)
 ```python
-retrained_classifier.load_model('my_model_35_epochs')
+my_model.load_model('my_model_35_epochs')
 ```
