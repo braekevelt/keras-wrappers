@@ -112,3 +112,6 @@ Restores the model weights and the history. (Requires same model architecture.)
 ```python
 my_model.load_model('my_model_35_epochs')
 ```
+
+## Other methods
+All methods of the original model also exist for the wrappers.
