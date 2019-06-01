@@ -11,6 +11,7 @@ from keras_wrappers import SequentialWrapper, ModelWrapper
 ### Sequential API
 ```python
 class MyModel(SequentialWrapper):
+
     def __init__(self):
         model = super().__init__(name='my_model')
 	model.add(Dense(32, input_dim=784))
@@ -34,12 +35,14 @@ class MyModel(SequentialWrapper):
 	# Optional postprocessing
         return super().postprocess(data)
 
+
 my_model = MyModel()
 ```
 
 ### Functional API
 ```python
 class MyModel(ModelWrapper):
+
     def __init__(self):
 	a = Input(shape=(32,))
 	b = Dense(32)(a)
@@ -62,6 +65,7 @@ class MyModel(ModelWrapper):
     def postprocess(self, data):
 	# Optional postprocessing
         return super().postprocess(data)
+
 
 my_model = MyModel()
 ```
