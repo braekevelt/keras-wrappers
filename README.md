@@ -19,14 +19,17 @@ class MyModel(SequentialWrapper):
               loss='categorical_crossentropy',
               metrics=['accuracy'])
 
+    @Override
     def preprocess_x(self, data):
 	# Optional preprocessing
         return super().preprocess_x(data)
 
+    @Override
     def preprocess_y(self, data):
 	# Optional preprocessing
         return super().preprocess_y(data)
 
+    @Override
     def postprocess(self, data):
 	# Optional postprocessing
         return super().postprocess(data)
@@ -45,14 +48,17 @@ class MyModel(ModelWrapper):
               loss='categorical_crossentropy',
               metrics=['accuracy'])
 
+    @Override
     def preprocess_x(self, data):
 	# Optional preprocessing
         return super().preprocess_x(data)
 
+    @Override
     def preprocess_y(self, data):
 	# Optional preprocessing
         return super().preprocess_y(data)
 
+    @Override
     def postprocess(self, data):
 	# Optional postprocessing
         return super().postprocess(data)
