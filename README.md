@@ -80,7 +80,6 @@ from keras.preprocessing.image import ImageDataGenerator
 generator = ImageDataGenerator(
             width_shift_range=0.1,
             height_shift_range=0.1,
-            ... ,
             horizontal_flip=True
           )
 my_model.train_generator(generator, x, y, batch_size=64, epochs=5)
