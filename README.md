@@ -2,6 +2,11 @@
 Wrappers around the Sequential and Functional API of Keras  
 by Alexander Braekevelt.
 
+## Importing the wrappers
+```python
+from keras_wrappers import SequentialWrapper, ModelWrapper
+```
+
 ## Creating a model
 ### Sequential API
 ```python
