@@ -2,6 +2,7 @@
 Wrappers around the Sequential and Functional API of Keras
 
 ## Creating a model
+### Sequential API
 ```python
 class MyModel(SequentialWrapper):
     def __init__(self):
@@ -27,6 +28,7 @@ class MyModel(SequentialWrapper):
 my_model = MyModel()
 ```
 
+### Functional API
 ```python
 class MyModel(ModelWrapper):
     def __init__(self):
