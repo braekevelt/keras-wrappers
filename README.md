@@ -5,7 +5,7 @@ Wrappers around the Sequential and Functional API of Keras
 ```python
 class MyModel(SequentialWrapper):
     def __init__(self):
-        model = super().__init__('my_model')
+        model = super().__init__(name='my_model')
 	model.add(Dense(32, input_dim=784))
 	model.add(Activation('softmax'))
 	model.compile(optimizer='adam',
@@ -30,9 +30,9 @@ my_model = MyModel()
 ```python
 class MyModel(ModelWrapper):
     def __init__(self):
-        model = super().__init__()
-	model.add(Dense(32, input_dim=784))
-	model.add(Activation('softmax'))
+	a = Input(shape=(32,))
+	b = Dense(32)(a)
+        model = super().__init__(inputs=a, outputs=b, name='my_model')
 	model.compile(optimizer='adam',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
@@ -53,7 +53,7 @@ my_model = MyModel()
 ```
 
 ## Training
-Training saves epochs (if not interrupted).
+Training saves epochs (if not interrupted) and applies both types of preprocessing.
 ```python
 my_model.train(x, y)
 ```
@@ -68,20 +68,29 @@ generator = ImageDataGenerator(
 my_model.train_generator(generator, cat_train_x, cat_train_y, batch_size=64, epochs=5)
 ```
 
+## Plotting
+Plots loss and accuracy of all epochs combined.
+```python
+my_model.plot_history(logy=False)
+```
+![Example plot](example_plot.png)
+
+
+## Predicting
+Predicting applies preprocessing and postprocessing.
+```python
+prediction = my_model.predict_one(single_y)
+predictions = my_model.predict_all(multiple_y)
+```
+
 ## Saving
+Saves both the model weights and the history.
 ```python
 my_model.save_model()
 ```
 
 ## Loading
+Restores the model weights and the history. (Requires same model architecture.)
 ```python
 retrained_classifier.load_model('my_model_35_epochs')
 ```
-
-## Plotting
-```python
-my_model.plot_history(logy=False)
-```
-
-## TODO
-work in progress...
