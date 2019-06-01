@@ -88,7 +88,7 @@ my_model.train_generator(generator, x, y, batch_size=64, epochs=5)
 ## Plotting
 Plots loss and accuracy of all epochs combined.
 ```python
-my_model.plot_history(logy=False)
+my_model.plot_history(log_y=False)
 ```
 ![Example plot](example_plot.png)
 

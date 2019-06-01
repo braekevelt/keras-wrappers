@@ -58,7 +58,7 @@ class Wrapper:
             self.histories[label] = self.histories.get(label, list()) + points
         self.epochs += kwargs['epochs']
 
-    def plot_history(self, logy=False):
+    def plot_history(self, log_y=False):
         fig, axs = plt.subplots(2, 1, sharex='all', figsize=(12, 6))
         fig.subplots_adjust(hspace=0.1)
         fig.suptitle('Training history', fontsize=16, y=0.94)
@@ -66,15 +66,15 @@ class Wrapper:
         for i, label in enumerate(['loss', 'acc']):
             ax = axs[i]
             x = list(range(1, len(self.histories[label]) + 1))
-            if logy:
-                ax.semilogy(x, self.histories[label], '-o', label=label)
+            if log_y:
+                ax.semilog_y(x, self.histories[label], '-o', label=label)
                 val_label = 'val_' + label
-                ax.semilogy(x, self.histories[val_label], '-o', label=val_label)
+                ax.semilog_y(x, self.histories[val_label], '-o', label=val_label)
             else:
                 ax.plot(x, self.histories[label], '-o', label=label)
                 val_label = 'val_' + label
                 ax.plot(x, self.histories[val_label], '-o', label=val_label)
-            if logy:
+            if log_y:
                 label = 'log(' + label + ')'
             ax.set_ylabel(label, fontsize=12)
             ax.legend()
